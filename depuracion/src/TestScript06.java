@@ -76,7 +76,7 @@ public class TestScript06 {
 		driver = new FirefoxDriver(ffBinary, firefoxProfile);
 
 		// Setting Base URL of website Guru99
-		baseUrl = Util.BASE_URL;
+		baseUrl = Util.AOL_URL;
 		driver.manage().timeouts()
 				.implicitlyWait(Util.WAIT_TIME, TimeUnit.SECONDS);
 		// Go to http://www.demo.guru99.com/V4/
