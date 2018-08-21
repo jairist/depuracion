@@ -13,6 +13,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.depuracion.util.ExcelUtils;
+import com.depuracion.util.Log;
 import com.depuracion.util.Util;
 
 public class AOL {
@@ -45,7 +46,7 @@ public class AOL {
 		driver.findElement(By.id("login-signin")).click();
 		Thread.sleep(3000);
 		if (driver.findElement(By.id("username-error")).isDisplayed()) {
-			System.out.println("Usuario invalido");
+			Log.info("Usuario invalido");
 			
 			driver.close();
 
