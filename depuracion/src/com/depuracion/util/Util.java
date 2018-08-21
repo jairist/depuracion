@@ -1,8 +1,5 @@
-/*
- * Declare some common parameters for scripts
- * You can change them to adapt your environment
- *
- */
+package com.depuracion.util;
+
 
 public class Util {
 
