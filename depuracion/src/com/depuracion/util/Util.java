@@ -11,10 +11,10 @@ public class Util {
 	public static final String YAHOO_URL = "https://login.yahoo.com/";
 
 	// Valid account for login
-	public static final String USER_NAME = "jairist";
+	public static final String USER_NAME = "jairistasdfasdf";
 	public static final String PASSWD = "Monitorde15";
 
-	public static final String PATTERN = ":";
+	public static final String CHROME_DRIVER = new File("").getAbsolutePath() + "\\tools\\chromedriver.exe";
 
 	public static final String FIREFOX_PATH = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
 
