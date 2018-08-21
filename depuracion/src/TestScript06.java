@@ -123,16 +123,7 @@ public class TestScript06 {
 				String pageText = driver.findElement(By.tagName("tbody")).getText();
 
 				// Extract the dynamic text mngrXXXX on page		
-				String[] parts = pageText.split(Util.PATTERN);
-				String dynamicText = parts[1];
 
-				// Check that the dynamic text is of pattern mngrXXXX
-				// First 4 characters must be "mngr"
-				assertTrue(dynamicText.substring(1, 5).equals(Util.FIRST_PATTERN));
-				// remain stores the "XXXX" in pattern mngrXXXX
-				String remain = dynamicText.substring(dynamicText.length() - 4);
-				// Check remain string must be numbers;
-				assertTrue(remain.matches(Util.SECOND_PATTERN));
 				// Code to take Screenshot
 				File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 				// Code to save screenshot at desired location

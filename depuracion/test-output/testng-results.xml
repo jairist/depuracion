@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="32571" started-at="2018-08-21T18:07:47Z" finished-at="2018-08-21T18:08:20Z">
+  <suite name="Default suite" duration-ms="97385" started-at="2018-08-21T21:41:04Z" finished-at="2018-08-21T21:42:41Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="32571" started-at="2018-08-21T18:07:47Z" finished-at="2018-08-21T18:08:20Z">
+    <test name="Default test" duration-ms="97385" started-at="2018-08-21T21:41:04Z" finished-at="2018-08-21T21:42:41Z">
       <class name="com.depuracion.login.AOL">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="beforeMethod" is-config="true" duration-ms="6353" started-at="2018-08-21T14:07:48Z" finished-at="2018-08-21T14:07:54Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="beforeMethod" is-config="true" duration-ms="6279" started-at="2018-08-21T17:41:04Z" finished-at="2018-08-21T17:41:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String)[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="Login" duration-ms="7546" started-at="2018-08-21T14:07:54Z" data-provider="Authentication" finished-at="2018-08-21T14:08:01Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String)[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="Login" duration-ms="5305" started-at="2018-08-21T17:41:11Z" data-provider="Authentication" finished-at="2018-08-21T17:41:16Z">
           <params>
             <param index="0">
               <value>
@@ -27,15 +27,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="beforeMethod" is-config="true" duration-ms="10556" started-at="2018-08-21T14:08:01Z" finished-at="2018-08-21T14:08:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="afterMethod" is-config="true" duration-ms="0" started-at="2018-08-21T14:08:01Z" finished-at="2018-08-21T14:08:01Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="afterMethod" is-config="true" duration-ms="2316" started-at="2018-08-21T17:41:16Z" finished-at="2018-08-21T17:41:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String)[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="Login" duration-ms="7576" started-at="2018-08-21T14:08:12Z" data-provider="Authentication" finished-at="2018-08-21T14:08:20Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="beforeMethod" is-config="true" duration-ms="14440" started-at="2018-08-21T17:41:18Z" finished-at="2018-08-21T17:41:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String)[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="Login" duration-ms="66149" started-at="2018-08-21T17:41:33Z" data-provider="Authentication" finished-at="2018-08-21T17:42:39Z">
           <params>
             <param index="0">
               <value>
@@ -51,7 +51,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="afterMethod" is-config="true" duration-ms="1" started-at="2018-08-21T14:08:20Z" finished-at="2018-08-21T14:08:20Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.depuracion.login.AOL@523884b2]" name="afterMethod" is-config="true" duration-ms="2355" started-at="2018-08-21T17:42:39Z" finished-at="2018-08-21T17:42:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->

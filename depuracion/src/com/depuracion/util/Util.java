@@ -15,6 +15,10 @@ public class Util {
 	public static final String PASSWD = "Monitorde15";
 
 	public static final String CHROME_DRIVER = new File("").getAbsolutePath() + "\\tools\\chromedriver.exe";
+	
+	public static final String EXCEL_FILE_PATH = new File("").getAbsolutePath() + "//testData//";
+	public static final String EXCEL_FILE = "TestData.xlsx";
+	public static final String EXCEL_SHEET = "Sheet1";
 
 	public static final String FIREFOX_PATH = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
 

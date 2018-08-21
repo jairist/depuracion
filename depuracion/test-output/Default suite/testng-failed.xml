@@ -5,7 +5,7 @@
     <classes>
       <class name="com.depuracion.login.AOL">
         <methods>
-          <include name="Login" invocation-numbers="0"/>
+          <include name="Login"/>
           <include name="beforeMethod"/>
           <include name="afterMethod"/>
         </methods>

@@ -25,6 +25,7 @@ public class AOL {
 		System.setProperty("webdriver.chrome.driver", Util.CHROME_DRIVER);
 		// System.out.println(new File("").getAbsolutePath().toString()+
 		// "\\tools\\chromedriver.exe");
+		Log.startTestCase("Login_AOL");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(Util.AOL_URL);
@@ -33,8 +34,8 @@ public class AOL {
 
 	@DataProvider(name = "Authentication")
 	public static Object[][] credentials() throws Exception {
-		Object[][] testObjArray = ExcelUtils.getTableArray(new File("").getAbsolutePath() + "//testData//TestData.xlsx",
-				"Sheet1");
+		Object[][] testObjArray = ExcelUtils.getTableArray(Util.EXCEL_FILE_PATH+Util.EXCEL_FILE,
+				Util.EXCEL_SHEET);
 		return (testObjArray);
 	}
 
@@ -46,21 +47,25 @@ public class AOL {
 		driver.findElement(By.id("login-signin")).click();
 		Thread.sleep(3000);
 		if (driver.findElement(By.id("username-error")).isDisplayed()) {
+			System.out.println("Usuario invalido");
 			Log.info("Usuario invalido");
 			
-			driver.close();
 
 		} else {
 			driver.findElement(By.id("login-passwd")).sendKeys(sPassword);
 			driver.findElement(By.id("login-signin")).click();
 			//si logro entrar encribir en el archivo que el usuario es válido.
+			Log.info("Usuario Válido");
 			System.out.println("Usuario Válido");
 			
 		}
 	}
 	@AfterMethod
 	public void afterMethod() {
-		//driver.close();
+		Log.endTestCase("Login_AOL");
+		driver.close();
+		
+		
 	}
 
 }
