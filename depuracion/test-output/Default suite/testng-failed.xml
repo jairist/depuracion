@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.depuracion.login.AOL">
+      <class name="com.depuracion.ejecucion.Ejecucion">
         <methods>
-          <include name="Login"/>
-          <include name="beforeMethod"/>
           <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+          <include name="ejecucion" invocation-numbers="1"/>
         </methods>
-      </class> <!-- com.depuracion.login.AOL -->
+      </class> <!-- com.depuracion.ejecucion.Ejecucion -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

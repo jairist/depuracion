@@ -113,8 +113,6 @@ public class TestScript06 {
 				actualBoxMsg = alt.getText(); // get content of the Alter Message
 				alt.accept();
 				 // Compare Error Text with Expected Error Value					
-				assertEquals(actualBoxMsg,Util.EXPECT_ERROR);
-			
 				
 			}    
 		    catch (NoAlertPresentException Ex){ 
