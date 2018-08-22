@@ -57,7 +57,7 @@ public class Ejecucion {
 			driver.findElement(By.id("login-signin")).click();
 			Thread.sleep(3000);
 			if (driver.findElement(By.id("username-error")).isDisplayed()) {
-				// scribir el excel con el usuario invalido.
+				// scribir el excel con el usuario invalido .
 
 			} else {
 				driver.findElement(By.id("login-passwd")).sendKeys(sPassword);
