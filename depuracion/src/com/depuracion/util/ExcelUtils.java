@@ -1,21 +1,17 @@
 package com.depuracion.util;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
-import com.depuracion.util.EnumWordDictionary.enumNombreColumna;
 
+import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
 
 public class ExcelUtils {
 	private static XSSFSheet ExcelWSheet;
@@ -28,10 +24,6 @@ public class ExcelUtils {
 	public static ArrayList<Object> dataFileDataInformation;
 	public static ArrayList<String> testCaseStatus;
 	public static String dataFilePathAndName;
-	public final static List<String> dataFileHeader = Arrays.asList(enumNombreColumna.TestCaseName.valor,
-			enumNombreColumna.Usuario.valor, enumNombreColumna.Clave.valor, enumNombreColumna.Resultado.valor
-
-	);
 
 	public static Object[][] getTableArray(String FilePath, String SheetName) throws Exception {
 
@@ -107,53 +99,6 @@ public class ExcelUtils {
 
 			throw (e);
 
-		}
-
-	}
-
-	public static void readAndWriteExcelFile() {
-
-		// write the excel to the File system
-		// The try/catch clause is to manage any error while create/save the excel file
-
-		try {
-
-			FileInputStream excelfile = new FileInputStream(new File(Util.EXCEL_FILE_PATH + Util.EXCEL_FILE));
-
-			XSSFWorkbook workbook = new XSSFWorkbook(excelfile);
-
-			XSSFSheet sheet = workbook.getSheet(Util.EXCEL_SHEET);
-
-			// Get Row at index 1
-			XSSFRow row = sheet.createRow((dataFileDataInformation.size() - 1));
-
-			for (int rowHeader = 0; rowHeader < dataFileHeader.size(); rowHeader++) {
-
-				// Get the Cell at index 2 from the above row
-				XSSFCell cell = row.createCell(rowHeader);
-
-				if (dataFileData.containsKey(dataFileHeader.get(rowHeader))) {
-
-					cell.setCellValue(dataFileData.get(dataFileHeader.get(rowHeader)));
-
-				} else {
-
-					cell.setCellValue("Inconcluso");
-				}
-			}
-
-			excelfile.close();
-
-			// Create the file into the File System
-			FileOutputStream fileOutputStreamVariable = new FileOutputStream(Util.EXCEL_FILE_PATH + Util.EXCEL_FILE);
-			// Write the information into the file
-			workbook.write(fileOutputStreamVariable);
-			// close the file and its input streaming data
-			fileOutputStreamVariable.close();
-
-		} catch (Exception e) {
-
-			System.out.println(e.getMessage());
 		}
 
 	}

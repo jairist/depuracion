@@ -5,9 +5,8 @@
     <classes>
       <class name="com.depuracion.ejecucion.Ejecucion">
         <methods>
-          <include name="afterMethod"/>
           <include name="beforeMethod"/>
-          <include name="ejecucion" invocation-numbers="1"/>
+          <include name="ejecucion"/>
         </methods>
       </class> <!-- com.depuracion.ejecucion.Ejecucion -->
     </classes>
