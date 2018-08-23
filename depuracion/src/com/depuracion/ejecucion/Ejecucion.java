@@ -62,8 +62,6 @@ public class Ejecucion {
 						driver.findElement(By.id("login-signin")).click();
 						// Si logro entrar encribir en el archivo que el usuario es válido.
 						ExcelUtils.setCellData("Valido", i, 3);
-
-						System.out.println("El usuario :" + sUserName + " es Válido");
 					}
 					driver.close();
 					break;
