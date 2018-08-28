@@ -20,8 +20,12 @@ public class Util {
 	public static final String CHROME_DRIVER = new File("").getAbsolutePath() + "\\tools\\chromedriver.exe";
 
 	public static final String EXCEL_FILE_PATH = new File("").getAbsolutePath() + "//testData//";
-	public static final String EXCEL_FILE = "TestData.xlsx";
-	public static final String EXCEL_SHEET = "Sheet1";
+	public static final String TXT_FILE_PATH = new File("").getAbsolutePath() + "//testData//";
+	public static final String TXT_FILE_NAME = "archivo.txt";
+	
+	
+	public static final String EXCEL_FILE = "Usuario.xlsx";
+	public static final String EXCEL_SHEET = "Usuarios";
 
 	public static final String MAIL_YAHOO = "yahoo";
 	public static final String MAIL_AOL = "aol";

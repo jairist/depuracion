@@ -19,6 +19,9 @@ public class Ejecucion {
 
 	@BeforeMethod
 	public void beforeMethod() throws Exception {
+		ExcelUtils.CrearExcelConUsuario();
+		
+		
 
 	}
 
@@ -29,8 +32,8 @@ public class Ejecucion {
 
 			try {
 
-				String sUserName = ExcelUtils.getCellData(i, 1);
-				String sPassword = ExcelUtils.getCellData(i, 2);
+				String sUserName = ExcelUtils.getCellData(i, 0);
+				String sPassword = ExcelUtils.getCellData(i, 1);
 
 				String[] tMail = sUserName.split("@");
 				String mail = tMail[tMail.length - 1].replace(".", ":");
@@ -55,13 +58,13 @@ public class Ejecucion {
 					Thread.sleep(3000);
 					if (driver.findElements(By.id("username-error")).size() != 0) {
 						// scribir el excel con el usuario invalido .
-						ExcelUtils.setCellData("Invalido", i, 3);
+						ExcelUtils.setCellData("Invalido", i, 2);
 
 					} else {
 						driver.findElement(By.id("login-passwd")).sendKeys(sPassword);
 						driver.findElement(By.id("login-signin")).click();
 						// Si logro entrar encribir en el archivo que el usuario es válido.
-						ExcelUtils.setCellData("Valido", i, 3);
+						ExcelUtils.setCellData("Valido", i, 2);
 					}
 					driver.close();
 					break;
@@ -81,16 +84,16 @@ public class Ejecucion {
 					Thread.sleep(3000);
 					if (!Util.verifyObjectPresent(driver, "login-passwd")) {
 						// scribir el excel con el usuario invalido.
-						ExcelUtils.setCellData("Invalido", i, 3);
+						ExcelUtils.setCellData("Invalido", i, 2);
 
 					} else if (!Util.verifyObjectPresent(driver, "recaptchaForm")) {
-						ExcelUtils.setCellData("Invalido", i, 3);
+						ExcelUtils.setCellData("Invalido", i, 2);
 
 					} else {
 						driver.findElement(By.id("login-passwd")).sendKeys(sPassword);
 						driver.findElement(By.id("login-signin")).click();
 						// si logro entrar encribir en el archivo que el usuario es válido.
-						ExcelUtils.setCellData("Valido", i, 3);
+						ExcelUtils.setCellData("Valido", i, 2);
 
 						System.out.println("El usuario :" + sUserName + " es Válido");
 
@@ -98,7 +101,7 @@ public class Ejecucion {
 					driver.close();
 					break;
 				case Util.MAIL_GMAIL:
-					ExcelUtils.setCellData("Invalido", i, 3);
+					ExcelUtils.setCellData("Invalido", i, 2);
 
 					break;
 

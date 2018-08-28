@@ -1,17 +1,25 @@
 package com.depuracion.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import com.depruacion.entidad.Usuario;
 
 public class ExcelUtils {
 	private static XSSFSheet ExcelWSheet;
@@ -19,22 +27,106 @@ public class ExcelUtils {
 	private static XSSFCell Cell;
 	private static XSSFRow Row;
 	private static MissingCellPolicy xRow;
+	
 
 	public static Map<String, String> dataFileData;
 	public static ArrayList<Object> dataFileDataInformation;
 	public static ArrayList<String> testCaseStatus;
 	public static String dataFilePathAndName;
 
-	public static Object[][] getTableArray(String FilePath, String SheetName) throws Exception {
+	public static void CrearExcelConUsuario() {
+		ArrayList<Usuario> datos =  new ArrayList<>();
+		// titulos
+		String[] titulos = { "Usuario", "Clave", "Resultado" };
+		datos = TxtUtil.obtenerUsuariosYClaves();
+
+		File archivo = new File(Util.EXCEL_FILE_PATH + Util.EXCEL_FILE);
+
+		// Creamos el libro de trabajo de Excel formato OOXML
+		Workbook workbook = new XSSFWorkbook();
+
+		// La hoja donde pondremos los datos
+		XSSFSheet pagina = (XSSFSheet) workbook.createSheet(Util.EXCEL_SHEET);
+
+		// Creamos el estilo paga las celdas del encabezado
+		CellStyle style = workbook.createCellStyle();
+		// Indicamos que tendra un fondo azul aqua
+		// con patron solido del color indicado
+		style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
+		// Creamos una fila en la hoja en la posicion 0
+		XSSFRow fila = pagina.createRow(0);
+
+		// Creamos el encabezado
+		for (int i = 0; i < titulos.length; i++) {
+			// Creamos una celda en esa fila, en la posicion
+			// indicada por el contador del ciclo
+			XSSFCell celda = fila.createCell(i);
+
+			// Indicamos el estilo que deseamos
+			// usar en la celda, en este caso el unico
+			// que hemos creado
+			celda.setCellStyle(style);
+			celda.setCellValue(titulos[i]);
+		}
+
+		// Y colocamos los datos en esa fila
+		for (int i = 1; i < datos.size(); i++) {
+			// Ahora creamos una fila en la posicion 1
+			fila = pagina.createRow(i);
+
+			// Creamos una celda en esa fila, en la
+			// posicion indicada por el contador del ciclo
+			fila = pagina.getRow(i);
+
+			XSSFCell celda = fila.getCell(0, MissingCellPolicy.RETURN_BLANK_AS_NULL);
+			if (celda == null) {
+				celda = fila.createCell(0);
+				celda.setCellValue(datos.get(i).getNombreUsuario());
+				//System.out.println("guardando usuario :" + datos.get(i).getNombreUsuario());
+
+			}
+			celda = fila.getCell(1, MissingCellPolicy.RETURN_BLANK_AS_NULL);
+			if (celda == null) {
+				celda = fila.createCell(1);
+				celda.setCellValue(datos.get(i).getClave());
+
+			}
+		}
+		// Ahora guardaremos el archivo
+		try {
+			// Creamos el flujo de salida de datos,
+			// apuntando al archivo donde queremos
+			// almacenar el libro de Excel
+			FileOutputStream salida = new FileOutputStream(archivo);
+
+			// Almacenamos el libro de
+			// Excel via ese
+			// flujo de datos
+			workbook.write(salida);
+
+			// Cerramos el libro para concluir operaciones
+			workbook.close();
+			
+			System.out.println("Archivo creado existosamente en {0}" + archivo.getAbsolutePath());
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Creanado Archivo sin depurar: NO ENCONTRADO EN EL SISTEMA");
+
+		} catch (IOException ex) {
+			System.out.println("Error de entrada/salida" + ex.getMessage());
+		}
+	}
+
+	public static Object[][] getTableArray() throws Exception {
 
 		String[][] tabArray = null;
 
 		try {
 
-			FileInputStream ExcelFile = new FileInputStream(FilePath);
+			FileInputStream ExcelFile = new FileInputStream(Util.EXCEL_FILE_PATH);
 			// Access the required test data sheet
 			ExcelWBook = new XSSFWorkbook(ExcelFile);
-			ExcelWSheet = ExcelWBook.getSheet(SheetName);
+			ExcelWSheet = ExcelWBook.getSheet(Util.EXCEL_SHEET);
 			int startRow = 1;
 			int startCol = 1;
 			int ci, cj;
