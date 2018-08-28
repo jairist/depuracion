@@ -17,7 +17,6 @@ public class Ejecucion {
 
 	private static WebDriver driver;
 
-	@BeforeMethod
 	public void beforeMethod() throws Exception {
 		ExcelUtils.CrearExcelConUsuario();
 		
@@ -25,8 +24,8 @@ public class Ejecucion {
 
 	}
 
-	@Test
 	public void ejecucion() throws Exception {
+		
 
 		for (int i = 0; i <= ExcelUtils.getLastRowNum(); i++) {
 
@@ -121,6 +120,19 @@ public class Ejecucion {
 			}
 			System.out.println("Cantidad de Usuarios trabajados: " + i);
 		}
+	}
+	public static void main(String[] args) {
+		Ejecucion ejecucion = new Ejecucion();
+		try {
+			ejecucion.beforeMethod();
+			ejecucion.ejecucion();
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 	}
 
 }
