@@ -6,10 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.poi.sl.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
@@ -38,7 +36,7 @@ public class ExcelUtils {
 		ArrayList<Usuario> datos =  new ArrayList<>();
 		// titulos
 		String[] titulos = { "Usuario", "Clave", "Resultado" };
-		datos = TxtUtil.obtenerUsuariosYClaves();
+		datos = TxtUtil.obtenerUsuariosYClavesNuevoFormato();
 
 		File archivo = new File(Util.EXCEL_FILE_PATH + Util.EXCEL_FILE);
 
@@ -107,10 +105,10 @@ public class ExcelUtils {
 			// Cerramos el libro para concluir operaciones
 			workbook.close();
 			
-			System.out.println("Archivo creado existosamente en {0}" + archivo.getAbsolutePath());
+			System.out.println("Archivo creado en " + archivo.getAbsolutePath());
 
 		} catch (FileNotFoundException ex) {
-			System.out.println("Creanado Archivo sin depurar: NO ENCONTRADO EN EL SISTEMA");
+			System.out.println("Creanado archivo sin depurar: NO ENCONTRADO EN EL SISTEMA");
 
 		} catch (IOException ex) {
 			System.out.println("Error de entrada/salida" + ex.getMessage());
@@ -171,7 +169,6 @@ public class ExcelUtils {
 		}
 
 	}
-
 	public static void setCellData(String Result, int RowNum, int ColNum) throws Exception {
 
 		try {
