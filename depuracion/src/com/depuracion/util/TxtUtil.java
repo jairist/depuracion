@@ -76,11 +76,11 @@ public class TxtUtil {
 
 				String linea = s.nextLine();
 				// Guardamos la linea en un String
-				if (linea.contains("@") & linea.contains(":")) {
-					String lineaTemp[] = linea.split(":");
+				if (linea.contains("@") & linea.contains(";")) {
+					String lineaTemp[] = linea.split(";");
 					Usuario usuarioActual = new Usuario();
-					usuarioActual.setNombreUsuario(lineaTemp[0]);
-					usuarioActual.setClave(lineaTemp[1]);
+					usuarioActual.setNombreUsuario(lineaTemp[0].trim());
+					usuarioActual.setClave(lineaTemp[1].trim());
 					datos.add(usuarioActual);
 
 				}

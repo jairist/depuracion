@@ -40,8 +40,12 @@ public class Util {
 
 	public static final String FIREFOX_PATH = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";//C:\Program Files\Mozilla Firefox\firefox.exe
 
-	public static final String CHROME_PATH = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
-
+	//public static final String CHROME_PATH = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+	public static final String CHROME_PORTABLE_PATH = new File("").getAbsolutePath() + "\\UTILS\\GoogleChromePortable64\\GoogleChromePortable.exe";
+	public static final String JRE_PORTABLE_PATH = new File("").getAbsolutePath() + "\\UTILS\\OpenJDKJRE64\\GoogleChromePortable.exe";
+	
+	///depuracion/UTILS/GoogleChromePortable64/GoogleChromePortable.exe
+	
 	public static boolean verifyObjectPresent(WebDriver driver, String id) {
 
 		try {
